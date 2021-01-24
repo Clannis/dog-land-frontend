@@ -1,5 +1,8 @@
-body {
+.background {
     background-color: #06b161;
+    position: absolute;
+    height: 100%;
+    width: 100%;
 }
 
 .btn {
@@ -17,7 +20,7 @@ body {
     }
 }
 
-.welcome {
+.login {
     width: 56%;
     top: 8rem;
     left: 24%;
@@ -88,7 +91,7 @@ body {
             transition: all .2s;
             content: "";
             position: absolute;
-            top: 10px;
+            top: 50%;
             
         }
 
