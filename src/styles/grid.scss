@@ -15,6 +15,7 @@
     }
 
     .col-1-of-2 {
+        text-align: center;
         width: calc((100% - #{8rem} ) / 2); // allows to mix units
      } 
 
