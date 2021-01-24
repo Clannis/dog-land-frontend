@@ -27,6 +27,10 @@ class Login extends Component {
         
     }
 
+    loginGithub = () => {
+        
+    }
+
     render() {
         return(
             <section className="welcome">
@@ -40,7 +44,7 @@ class Login extends Component {
                     </div>
                 </form>
                 <p className="welcome__seperator welcome__seperator--or">or</p>
-                <button className="github btn">
+                <button className="github btn" onClick={this.loginGithub}>
                     <img className="github__icon" src={process.env.PUBLIC_URL + '/github-logo.png'} alt="github-logo"></img>
                     <p className="github__text">Login with Github</p>
                 </button>
