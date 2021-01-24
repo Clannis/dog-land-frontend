@@ -1,9 +1,10 @@
-import './App.css';
-import Welcome from './pages/Welcome';
+import './styles/app.scss';
+import Login from './pages/Login';
+import {Route} from 'react-router-dom'
 
 function App() {
   return (
-    <Welcome/>
+    <Route path="/login" component={Login}/>
   );
 }
 
