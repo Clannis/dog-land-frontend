@@ -1,0 +1,20 @@
+.row {
+    max-width: 144rem;
+    margin: auto auto;
+    
+    &:not(:last-child) { // selects all but :last-child
+        margin-bottom: 6rem;
+    }
+
+    [class^="col-"] { // select all with classes starting with "col-". *= is for contains. $= ends with
+        float: left;
+
+        &:not(:last-child) {
+            margin-right: 8rem;
+        }
+    }
+
+    .col-1-of-3 {
+        width: calc((100% - 2 * #{8rem} ) / 3);
+    }
+}

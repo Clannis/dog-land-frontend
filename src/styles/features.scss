@@ -1,0 +1,38 @@
+.section-features {
+    background-color: #06b161;
+    background-image: linear-gradient(to right bottom, 
+    rgba(#06b161, 0.6), 
+    rgba(#11643e, 0.6)), 
+    url(../assets/img/dogs.jpg);
+    height: 75vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+}
+
+.feature-box {
+    background-color: rgba(white, .8);
+    font-size: 1.5rem;
+    padding: 2.5rem;
+    text-align: center;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba(black, .15);
+    transition: transform .3s;
+
+    &__icon {
+        font-size: 6rem;
+        margin-bottom: .5rem;
+        display: inline-block;
+        background-image: linear-gradient(to right, red, blue);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    &:hover {
+        transform: translateY(-1.5rem) scale(1.03);
+    }
+}
+
+.heading-tertiary {
+    margin-bottom: 2rem;
+}
