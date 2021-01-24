@@ -1,9 +1,7 @@
 .section-stories {
     padding: 20rem 0;
     background-size: cover;
-    transform: skewY(-6deg);
-    margin-top: -9rem;
-    z-index: -1;
+    margin-top: -15rem;
     position: relative;
 }
 
@@ -13,13 +11,12 @@
     left: 0;
     height: 100%;
     width: 100%;
-    z-index: 2;
+    z-index: -1;
     opacity: .15;
     overflow: hidden;
 
     &__content {
-        transform: skewY(6deg);
-        height: 120%;
+        height: 100%;
         width: 100%;
         object-fit: cover;
     }
