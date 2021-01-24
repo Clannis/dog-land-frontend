@@ -20,7 +20,7 @@ class Features extends Component {
 
                     <div className="col-1-of-3">
                         <div className="feature-box">
-                            <i className="feature-box__icon icon-basic-book-pencil"></i>
+                            <i className="feature-box__icon icon-basic-lightbulb"></i>
                             <h3 className="heading-tertiary">Learn Fancy Tricks</h3>
                             <p className="feature-box__text">
                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis quisquam rem illum incidunt nam tempora.
