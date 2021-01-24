@@ -1,8 +1,8 @@
 .footer {
-    background-color: black;
+    background-color: rgb(32, 32, 32);
     padding: 10rem 0;
     font-size: 1.4rem;
-    color: gray;
+    color: white;
     height: 20em;
 
     &__logo-box {
@@ -14,7 +14,7 @@
     }
 
     &__navigation {
-        border-top: 1px solid darkgray;
+        border-top: 1px solid white;
         padding-top: 2rem;
         display: inline-block;
     }
@@ -35,8 +35,8 @@
 
         &:link,
         &:visited {
-            color: grey;
-            background-color: black;
+            color: white;
+            background-color: rgb(32, 32, 32);
             text-decoration: none;
             text-transform: uppercase;
             display: inline-block;
@@ -52,7 +52,7 @@
     }
 
     &__copyright {
-        border-top: 1px solid grey;
+        border-top: 1px solid white;
         padding-top: 2rem;
         width: 83%;
         float: right;
