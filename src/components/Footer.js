@@ -13,7 +13,7 @@ class Footer extends Component {
                                 <li class="footer__item"><a href="#" class="footer__link">Login</a></li>
                                 <li class="footer__item"><a href="#" class="footer__link">Testimonials</a></li>
                                 <li class="footer__item"><a href="#" class="footer__link">Contact us</a></li>
-                                <li class="footer__item"><a href="#" class="footer__link">Privacy policy</a></li>
+                                <li class="footer__item"><a href="#" class="footer__link">About</a></li>
                                 <li class="footer__item"><a href="#" class="footer__link">Terms</a></li>
                             </ul>
                         </div>
