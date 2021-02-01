@@ -1,7 +1,9 @@
 
 const Navlink = (props) => {
     return(
-        <li class="navigation__item">{props.link.text}</li>
+        <li className="navigation__item">
+            <span className="navigation__item--text">{props.link.text}</span>
+        </li>
     )
 }
 

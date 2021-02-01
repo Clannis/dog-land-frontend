@@ -11,8 +11,8 @@ class Navbar extends Component {
     
     render() {
         return(
-            <nav class="navigation__nav">
-                <ul class="navigation__list">
+            <nav className="navigation">
+                <ul className="navigation__list">
                     {this.renderNavlinks()}
                 </ul>
             </nav>
