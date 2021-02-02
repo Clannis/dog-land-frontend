@@ -4,11 +4,11 @@ export const navlinks = [
         href: "/about"
     },
     {
-        text: "Login",
-        href: "/login"
+        text: "New Trainer",
+        href: "/trainer_signup"
     },
     {
-        text: "Signup",
-        href: "/signup"
+        text: "Login/Signup",
+        href: "/login"
     }
 ]
