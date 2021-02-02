@@ -42,7 +42,7 @@ class Login extends Component {
                         <input className="login__form--input" type="password" id="inputPassword" name="password" placeholder="Password" required onChange={this.handleChange}/>
                         <div className="login__form--submit-group">
                             <button className="login__form--submit btn" type="submit" name="submit">Login</button>
-                            <button className="login__form--submit btn" type="submit" name="submit">Register with Email</button>
+                            <button className="login__form--submit btn" type="submit" name="submit">Register</button>
                         </div>
                     </form>
                     <p className="login__seperator login__seperator--or">or</p>
