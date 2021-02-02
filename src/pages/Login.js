@@ -1,6 +1,7 @@
 import { Component } from "react";
 import "../styles/login.scss"
 import githubLogo from '../assets/img/github-logo.png'
+import { Link } from "react-router-dom";
 
 class Login extends Component {
     constructor(){
@@ -51,7 +52,7 @@ class Login extends Component {
                         <p className="github__text">Login with Github</p>
                     </button>
                     <p className="login__seperator login__seperator--trainer">Trainer</p>
-                    <button className="login__trainer btn">Trainer</button>
+                    <Link to={'/trainer_login'}><button className="login__trainer btn">Register New Trainer</button></Link>
                 </section>
             </main>
         )
