@@ -22,8 +22,19 @@
         font-size: 2em;
         cursor: pointer;
         position: relative;
+        transition: all .3s ease;
+
+        &:hover {
+            background-color: rgb(17, 160, 51);
+
+            > .navigation__item--text {
+                font-size: 1.3em;
+                top: 35%
+            }
+        }
 
         &--text {
+            transition: all .3s ease;
             position: absolute;
             top: 50%;
             left: 50%;
