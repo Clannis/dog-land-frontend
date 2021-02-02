@@ -6,7 +6,7 @@ import "../styles/navbar.scss"
 class Navbar extends Component {
 
     renderNavlinks = () => {
-        return navlinks.map( link => <Navlink link={link}/>)
+        return navlinks.map( link => <Navlink link={link} key={link.text}/>)
     }
     
     render() {
