@@ -1,6 +1,5 @@
 import { Component } from "react";
 import "../styles/login.scss"
-import githubLogo from '../assets/img/github-logo.png'
 
 class TrainerLogin extends Component {
     constructor(){
