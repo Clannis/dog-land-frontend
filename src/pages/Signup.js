@@ -1,8 +1,8 @@
 import { Component } from "react";
-import "../styles/login.scss"
+import "../styles/signup.scss"
 import githubLogo from '../assets/img/github-logo.png'
 
-class Login extends Component {
+class Signup extends Component {
     constructor(){
         super()
         this.state = {
@@ -42,7 +42,7 @@ class Login extends Component {
                         <input className="login__form--input" type="password" id="inputPassword" name="password" placeholder="Password" required onChange={this.handleChange}/>
                         <div className="login__form--submit-group">
                             <button className="login__form--submit btn" type="submit" name="submit">Login</button>
-                            <button className="login__form--submit btn" type="submit" name="submit">Register with Email</button>
+                            <button className="login__form--submit btn" type="submit" name="submit">Register</button>
                         </div>
                     </form>
                     <p className="login__seperator login__seperator--or">or</p>
@@ -58,4 +58,4 @@ class Login extends Component {
     }
 }
 
-export default Login
+export default Signup
