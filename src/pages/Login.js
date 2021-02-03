@@ -51,8 +51,6 @@ class Login extends Component {
                         <img className="github__icon" src={githubLogo} alt="github-logo"></img>
                         <p className="github__text">Login with Github</p>
                     </button>
-                    <p className="login__seperator login__seperator--trainer">Trainer</p>
-                    <Link to={'/trainer_signup'}><button className="login__trainer btn">Register New Trainer</button></Link>
                 </section>
             </main>
         )
