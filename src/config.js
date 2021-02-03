@@ -8,3 +8,5 @@ export const navlinks = [
         href: "/login"
     }
 ]
+
+export const BASE_URL = "http://localhost:3000/"
