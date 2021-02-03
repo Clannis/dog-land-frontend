@@ -20,7 +20,7 @@ class Footer extends Component {
                     </div>
                     <div class="col-1-of-2">
                         <p class="footer__copyright">
-                            Built by <a href="https://jamesrdodds.com/" class="footer__link">James Dodds</a> for <a href="https://flatironschool.com" class="footer__link">Flatiron School's</a> Software Engineering Online course. Copyright &copy; by James Dodds.
+                            Built by <a href="https://jamesrdodds.com/" class="footer__link">James Dodds</a> for <a href="https://flatironschool.com" class="footer__link">Flatiron School's</a> Software Engineering Online course. Copyright &copy; by James Dodds. Home Icon made by <a href="https://www.freepik.com" title="Freepik" class="footer__link">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon" class="footer__link">www.flaticon.com</a>
                         </p>
                     </div>
                 </div>
