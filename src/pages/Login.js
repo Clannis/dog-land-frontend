@@ -1,7 +1,6 @@
 import { Component } from "react";
 import "../styles/login.scss"
 import githubLogo from '../assets/img/github-logo.png'
-import { Link } from "react-router-dom";
 
 class Login extends Component {
     constructor(){
