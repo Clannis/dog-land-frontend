@@ -11,10 +11,10 @@ class Footer extends Component {
                     <div className="col-1-of-2">
                         <div className="footer__navigation">
                             <ul className="footer__list">
-                                <li className="footer__item"><Link to={"/trainer_signup"}><a href="#" className="footer__link">New Trainer</a></Link></li>
+                                <li className="footer__item"><Link to={"/trainer_signup"} className="footer__link">New Trainer</Link></li>
                                 <li className="footer__item"><a href="#" className="footer__link">Testimonials</a></li>
                                 <li className="footer__item"><a href="#" className="footer__link">Contact us</a></li>
-                                <li className="footer__item"><a href="#" className="footer__link">About</a></li>
+                                <li className="footer__item"><Link to={"/about"} className="footer__link">About</Link></li>
                                 <li className="footer__item"><a href="#" className="footer__link">Terms</a></li>
                             </ul>
                         </div>
