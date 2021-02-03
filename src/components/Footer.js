@@ -6,22 +6,22 @@ class Footer extends Component {
     
     render() {
         return(
-            <footer class="footer">
-                <div class="row">
-                    <div class="col-1-of-2">
-                        <div class="footer__navigation">
-                            <ul class="footer__list">
-                                <li class="footer__item"><Link to={"/trainer_signup"}><a href="#" class="footer__link">New Trainer</a></Link></li>
-                                <li class="footer__item"><a href="#" class="footer__link">Testimonials</a></li>
-                                <li class="footer__item"><a href="#" class="footer__link">Contact us</a></li>
-                                <li class="footer__item"><a href="#" class="footer__link">About</a></li>
-                                <li class="footer__item"><a href="#" class="footer__link">Terms</a></li>
+            <footer className="footer">
+                <div className="row">
+                    <div className="col-1-of-2">
+                        <div className="footer__navigation">
+                            <ul className="footer__list">
+                                <li className="footer__item"><Link to={"/trainer_signup"}><a href="#" className="footer__link">New Trainer</a></Link></li>
+                                <li className="footer__item"><a href="#" className="footer__link">Testimonials</a></li>
+                                <li className="footer__item"><a href="#" className="footer__link">Contact us</a></li>
+                                <li className="footer__item"><a href="#" className="footer__link">About</a></li>
+                                <li className="footer__item"><a href="#" className="footer__link">Terms</a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-1-of-2">
-                        <p class="footer__copyright">
-                            Built by <a href="https://jamesrdodds.com/" class="footer__link">James Dodds</a> for <a href="https://flatironschool.com" class="footer__link">Flatiron School's</a> Software Engineering Online course. Copyright &copy; by James Dodds. Home Icon made by <a href="https://www.freepik.com" title="Freepik" class="footer__link">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon" class="footer__link">www.flaticon.com</a>
+                    <div className="col-1-of-2">
+                        <p className="footer__copyright">
+                            Built by <a href="https://jamesrdodds.com/" className="footer__link">James Dodds</a> for <a href="https://flatironschool.com" className="footer__link">Flatiron School's</a> Software Engineering Online course. Copyright &copy; by James Dodds. Home Icon made by <a href="https://www.freepik.com" title="Freepik" className="footer__link">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon" className="footer__link">www.flaticon.com</a>
                         </p>
                     </div>
                 </div>
