@@ -3,7 +3,8 @@ import "../styles/login.scss"
 import githubLogo from '../assets/img/github-logo.png'
 import { connect } from "react-redux";
 import login from '../actions/login'
-import register from '../actions/register'
+import { Link } from "react-router-dom"
+
 
 class Login extends Component {
     constructor(){
@@ -11,7 +12,6 @@ class Login extends Component {
         this.state = {
             email: "",
             password: "",
-            submitted: ""
         }
     }
 
@@ -21,15 +21,11 @@ class Login extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        const email = this.state.email
-        const password = this.state.password
-        const user = {user: {password: password, email: email} }
-        if (this.state.submitted === "login") {
-            this.props.login(user)
-        } else {
-            this.props.register(user)
-        }
-        
+        const user = {user: {
+            password: this.state.password,
+            email: this.state.email
+        } }
+        this.props.login(user)
     }
 
     loginGithub = () => {
@@ -42,11 +38,11 @@ class Login extends Component {
                 <section className="login">
                     <h1 className="login__heading">Welcome to Dog Land Academy</h1>
                     <form className="login__form" onSubmit={this.handleSubmit}>
-                        <input className="login__form--input" type="email" id="inputEmail" name="email"  placeholder="Email Address" required autoFocus="" onChange={this.handleChange}/>
-                        <input className="login__form--input" type="password" id="inputPassword" name="password" placeholder="Password" required onChange={this.handleChange}/>
+                        <input className="login__form--input" type="email" id="inputEmail" name="email"  placeholder="Email Address" required autoFocus="" onChange={this.handleChange} value={this.state.email}/>
+                        <input className="login__form--input" type="password" id="inputPassword" name="password" placeholder="Password" required onChange={this.handleChange} value={this.state.password}/>
                         <div className="login__form--submit-group">
-                            <button className="login__form--submit btn" type="submit" name="submitted" value="login" onClick={this.handleChange}>Login</button>
-                            <button className="login__form--submit btn" type="submit" name="submitted" value="register" onClick={this.handleChange}>Register</button>
+                            <button className="login__form--submit btn" type="submit">Login</button>
+                            <Link to={{pathname: '/register', registerProps: {email: this.state.email, password: this.state.password}}}><button className="login__form--submit btn">Register</button></Link>
                         </div>
                     </form>
                     <p className="login__seperator login__seperator--or">or</p>
@@ -62,8 +58,7 @@ class Login extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        login: (user) => dispatch(login(user)),
-        register: (user) => dispatch(register(user))
+        login: (user) => dispatch(login(user))
     }
 }
 
