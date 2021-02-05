@@ -8,8 +8,8 @@ class Register extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            email: this.props.location.registerProps.email,
-            password: this.props.location.registerProps.password,
+            email: this.props.location.registerProps.email ? this.props.location.registerProps.email : "",
+            password: this.props.location.registerProps.password ? this.props.location.registerProps.password : "",
             passwordConfirmation: "",
             firstName: "",
             lastName: "",
