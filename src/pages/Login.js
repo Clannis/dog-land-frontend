@@ -32,11 +32,20 @@ class Login extends Component {
 
     }
 
+    displayErrors = () => {
+        return this.props.user.errors ? this.props.user.errors.map( error => <li className="login__errors--message">{error}</li>) : null
+    }
+
     render() {
         return(
             <main className="background">
                 <section className="login">
                     <h1 className="login__heading">Welcome to Dog Land Academy</h1>
+                    <div className="login__errors">
+                        <ul>
+                            {this.displayErrors()}
+                        </ul>
+                    </div>
                     <form className="login__form" onSubmit={this.handleSubmit}>
                         <input className="login__form--input" type="email" id="inputEmail" name="email"  placeholder="Email Address" required autoFocus="" onChange={this.handleChange} value={this.state.email}/>
                         <input className="login__form--input" type="password" id="inputPassword" name="password" placeholder="Password" required onChange={this.handleChange} value={this.state.password}/>
@@ -56,10 +65,16 @@ class Login extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        user: state.user.user
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
         login: (user) => dispatch(login(user))
     }
 }
 
-export default connect(null, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

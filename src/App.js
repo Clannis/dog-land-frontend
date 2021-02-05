@@ -7,7 +7,7 @@ import Navbar from './containers/Navbar';
 import Register from './pages/Register';
 
 function App() {
-  const loggedIn = (localStorage.token ? true : false)
+  let loggedIn = (localStorage.token ? true : false)
   return (
     <>
       <Navbar/>
