@@ -3,6 +3,7 @@ import "../styles/login.scss"
 import githubLogo from '../assets/img/github-logo.png'
 import { connect } from "react-redux";
 import login from '../actions/login'
+import register from '../actions/register'
 
 class Login extends Component {
     constructor(){
@@ -22,7 +23,7 @@ class Login extends Component {
         event.preventDefault()
         const email = this.state.email
         const password = this.state.password
-        const user = {password: password, email: email}
+        const user = {user: {password: password, email: email} }
         if (this.state.submitted === "login") {
             this.props.login(user)
         } else {
@@ -61,7 +62,8 @@ class Login extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        login: (user) => dispatch(login(user))
+        login: (user) => dispatch(login(user)),
+        register: (user) => dispatch(register(user))
     }
 }
 
