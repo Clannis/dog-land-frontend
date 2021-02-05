@@ -33,7 +33,16 @@ class Login extends Component {
     }
 
     displayErrors = () => {
-        return this.props.user.errors ? this.props.user.errors.map( error => <li className="login__errors--message">{error}</li>) : null
+        if (this.props.user.errors !== undefined) {
+            return (
+                <div className="login__errors">
+                    <ul className="login__errors--list">
+                        {this.props.user.errors.map( error => <li className="login__errors--message">{error}</li>)}
+                    </ul>
+                </div>
+            )
+        }
+        
     }
 
     render() {
@@ -41,11 +50,7 @@ class Login extends Component {
             <main className="background">
                 <section className="login">
                     <h1 className="login__heading">Welcome to Dog Land Academy</h1>
-                    <div className="login__errors">
-                        <ul>
-                            {this.displayErrors()}
-                        </ul>
-                    </div>
+                    {this.displayErrors()}
                     <form className="login__form" onSubmit={this.handleSubmit}>
                         <input className="login__form--input" type="email" id="inputEmail" name="email"  placeholder="Email Address" required autoFocus="" onChange={this.handleChange} value={this.state.email}/>
                         <input className="login__form--input" type="password" id="inputPassword" name="password" placeholder="Password" required onChange={this.handleChange} value={this.state.password}/>

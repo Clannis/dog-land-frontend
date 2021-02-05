@@ -35,6 +35,29 @@
         margin: .7em 0;
     }
 
+    &__errors {
+        background-color: rgb(207, 204, 204);
+        width: 60%;
+        min-height: 6em;
+        margin: 2em auto;
+        border-radius: 8px;
+        position: relative;
+
+        &--list {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        &--message {
+            list-style: none;
+            color: red;
+            font-size: 2em;
+            font-weight: bold;
+        }
+    }
+
     &__form {
         text-align: center;
         display: inline-block;
@@ -46,6 +69,7 @@
             border-radius: 5px;
             border: none;
             margin-bottom: 1.5em;
+            padding-left: 2em;
 
             &:focus {
                 outline: none;
