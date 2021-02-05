@@ -12,9 +12,9 @@ function App() {
     <>
       <Navbar/>
       <Switch>
-        <Route exact path="/" component={Welcome}/>
-        <Route path="/login" component={Login}/>
-        <Route path="/register" component={Register}>{loggedIn ? <Redirect to="/dashboard" /> : <Register/>}</Route>
+        <Route exact path="/" component={Welcome}>{loggedIn ? <Redirect to="/users/:id" /> : <Login/>}</Route>
+        <Route path="/login" component={Login}>{loggedIn ? <Redirect to="/users/:id" /> : <Login/>}</Route>
+        <Route path="/register" component={Register}>{loggedIn ? <Redirect to="/users/:id" /> : <Register/>}</Route>
         <Route path="/trainer_signup" component={TrainerSignup}/>
       </Switch>
     </>
