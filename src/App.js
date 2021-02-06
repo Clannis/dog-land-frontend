@@ -25,7 +25,7 @@ class App extends Component {
           <Route exact path="/" component={Welcome}>{this.loggedIn() ? <Redirect to="/users/:id" /> : <Welcome/>}</Route>
           <Route path="/login" component={Login}>{this.loggedIn() ? <Redirect to="/users/:id" /> : <Login/>}</Route>
           <Route path="/register" component={Register}/>
-          <Route path="/trainer_signup" component={TrainerSignup}/>
+          <Route path="/trainer_signup" component={TrainerSignup}>{this.loggedIn() ? <Redirect to="/trainers/:id" /> : <TrainerSignup/>}</Route>
         </Switch>
       </>
     );
