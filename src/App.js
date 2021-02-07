@@ -4,7 +4,7 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import Welcome from './pages/Welcome';
 import TrainerSignup from './pages/TrainerSignup';
 import Navbar from './containers/Navbar';
-import Register from './pages/Register';
+import UserSignup from './pages/UserSignup';
 import { Component } from 'react';
 
 class App extends Component {
@@ -16,7 +16,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Welcome}>{localStorage.token ? <Redirect to="/users/:id" /> : <Welcome/>}</Route>
           <Route path="/login" component={Login}>{localStorage.token ? <Redirect to="/users/:id" /> : <Login/>}</Route>
-          <Route path="/register" component={Register}/>
+          <Route path="/register" component={UserSignup}/>
           <Route path="/trainer_signup" component={TrainerSignup}>{localStorage.token ? <Redirect to="/trainers/:id" /> : <TrainerSignup/>}</Route>
         </Switch>
       </>

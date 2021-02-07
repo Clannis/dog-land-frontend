@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import userRegister from '../actions/userRegister'
 
 
-class Register extends Component {
+class UserSignup extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -66,4 +66,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(null,mapDispatchToProps)(Register)
+export default connect(null,mapDispatchToProps)(UserSignup)
