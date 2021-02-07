@@ -1,7 +1,7 @@
 import { Component } from "react";
 import "../styles/login.scss"
 import { connect } from "react-redux";
-import register from '../actions/register'
+import userRegister from '../actions/userRegister'
 
 
 class Register extends Component {
@@ -33,7 +33,7 @@ class Register extends Component {
             phone_number: this.state.phoneNumber,
             username: this.state.username
         } }
-        this.props.register(user)
+        this.props.userRegister(user)
         
     }
 
@@ -62,7 +62,7 @@ class Register extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        register: (user) => dispatch(register(user))
+        userRegister: (user) => dispatch(userRegister(user))
     }
 }
 

@@ -1,6 +1,6 @@
 import { BASE_URL } from '../config'
 
-export default function login(user) {
+export default function userRegister(user) {
     return (dispatch) => {
         fetch(`${BASE_URL}/users`, {
             method: 'POST', // or 'PUT'
@@ -12,7 +12,7 @@ export default function login(user) {
         .then(response => response.json())
         .then(response => {
             if (!response.errors) {
-                dispatch({ type: 'LOGIN', user: response.user, token: response.token })
+                dispatch({ type: 'USER_LOGIN', user: response.user, token: response.token })
             } else {
                 alert(`${response.errors}`)
             }

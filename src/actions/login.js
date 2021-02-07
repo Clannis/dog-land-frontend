@@ -12,7 +12,11 @@ export default function login(user) {
         .then(response => response.json())
         .then(response => {
             if (!response.errors) {
-                dispatch({ type: 'LOGIN', user: response.user, token: response.token })
+                if (response.user) {
+                    dispatch({ type: 'USER_LOGIN', user: response.user, token: response.token })
+                } else {
+                    dispatch({ type: 'TRAINER_LOGIN', trainer: response.trainer, token: response.token })
+                }
             } else {
                 dispatch({ type: 'USER_ERRORS', errors: response.errors })
             }
