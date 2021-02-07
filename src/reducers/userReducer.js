@@ -1,11 +1,12 @@
 
-export default function userReducer(state = {user: "", errors: [] }, action) {
+export default function userReducer(state = {user: "", errors: [], loggedIn: false }, action) {
     switch (action.type) {
         case "LOGIN":
             localStorage.token = action.token
             return {
                 user: action.user,
-                errors: []
+                errors: [],
+                loggedIn: true
             }
         case "USER_ERRORS":
             return {
