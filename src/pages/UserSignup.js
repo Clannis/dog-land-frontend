@@ -24,16 +24,20 @@ class UserSignup extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        const user = {user: {
-            password: this.state.password, 
-            email: this.state.email, 
-            password_confirmation: this.state.passwordConfirmation, 
-            first_name: this.state.firstName,
-            last_name: this.state.lastName,
-            phone_number: this.state.phoneNumber,
-            username: this.state.username
-        } }
-        this.props.userRegister(user)
+        if (this.state.password === this.state.passwordConfirmation) {
+            const user = {user: {
+                password: this.state.password, 
+                email: this.state.email, 
+                first_name: this.state.firstName,
+                last_name: this.state.lastName,
+                phone_number: this.state.phoneNumber,
+                username: this.state.username
+            } }
+            this.props.userRegister(user)
+        } else {
+            // add error display
+        }
+        
         
     }
 

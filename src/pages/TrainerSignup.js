@@ -26,7 +26,7 @@ class TrainerSignup extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         if (this.state.password === this.state.passwordConfirmation) {
-            const trainer = { 
+            const trainer = { trainer: {
                 password: this.state.password, 
                 email: this.state.email,
                 first_name: this.state.firstName,
@@ -34,7 +34,7 @@ class TrainerSignup extends Component {
                 phone_number: this.state.phoneNumber,
                 username: this.state.username,
                 certification: this.state.certification
-            }
+            }}
             if (this.state.trainerCode === "1mAn3wTr4!N3r") {
                 this.props.trainerRegister(trainer)
             } else {
