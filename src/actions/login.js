@@ -14,8 +14,10 @@ export default function login(user) {
             if (!response.errors) {
                 if (response.user) {
                     dispatch({ type: 'USER_LOGIN', user: response.user, token: response.token })
-                } else {
+                    dispatch({ type: "LOGIN"})
+                } else if (response.trainer) {
                     dispatch({ type: 'TRAINER_LOGIN', trainer: response.trainer, token: response.token })
+                    dispatch({ type: "LOGIN"})
                 }
             } else {
                 dispatch({ type: 'USER_ERRORS', errors: response.errors })

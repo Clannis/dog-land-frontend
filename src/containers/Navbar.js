@@ -4,11 +4,17 @@ import { navlinks } from "../config";
 import "../styles/navbar.scss"
 import Icon from '../assets/img/Icon.png'
 import { Link } from "react-router-dom";
+import { connect } from "react-redux"
 
 class Navbar extends Component {
 
     renderNavlinks = () => {
-        return navlinks.map( link => <Navlink link={link} key={link.text}/>)
+        if (this.props.loggedIn) {
+            return navlinks.filter( link => link.text !== "Login/Signup").map( link => <Navlink link={link} key={link.text}/>)
+        } else {
+            return navlinks.filter( link => link.text !== "Logout").map( link => <Navlink link={link} key={link.text}/>)
+        }
+        
     }
     
     render() {
@@ -23,4 +29,10 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar
+const mapStateToProps = (state) => {
+    return {
+        loggedIn: state.loggedIn.loggedIn
+    }
+}
+
+export default connect(mapStateToProps)(Navbar)

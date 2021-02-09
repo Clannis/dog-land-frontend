@@ -6,6 +6,10 @@ export const navlinks = [
     {
         text: "Login/Signup",
         href: "/login"
+    },
+    {
+        text: "Logout",
+        href: "/logout"
     }
 ]
 

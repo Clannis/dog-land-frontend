@@ -6,6 +6,7 @@ import TrainerSignup from './pages/TrainerSignup';
 import Navbar from './containers/Navbar';
 import UserSignup from './pages/UserSignup';
 import { Component } from 'react';
+import { connect } from 'react-redux';
 
 class App extends Component {
 
@@ -14,14 +15,22 @@ class App extends Component {
       <>
         <Navbar/>
         <Switch>
-          <Route exact path="/" component={Welcome}>{localStorage.token ? <Redirect to="/users/:id" /> : <Welcome/>}</Route>
-          <Route path="/login" component={Login}>{localStorage.token ? <Redirect to="/users/:id" /> : <Login/>}</Route>
+          <Route exact path="/" component={Welcome}>{this.props.loggedIn ? <Redirect to="/users/:id" /> : <Welcome/>}</Route>
+          <Route path="/login" component={Login}>{this.props.loggedIn ? this.props.user.id ? <Redirect to={`/users/${this.props.user.id}`} /> : <Redirect to={`/trainers/${this.props.trainer.id}`} /> : <Login/>}</Route>
           <Route path="/register" component={UserSignup}/>
-          <Route path="/trainer_signup" component={TrainerSignup}>{localStorage.token ? <Redirect to="/trainers/:id" /> : <TrainerSignup/>}</Route>
+          <Route path="/trainer_signup" component={TrainerSignup}>{this.props.loggedIn ? <Redirect to="/trainers/:id" /> : <TrainerSignup/>}</Route>
         </Switch>
       </>
     );
   }  
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+      loggedIn: state.loggedIn.loggedIn,
+      user: state.user.user,
+      trainer: state.trainer.trainer
+  }
+}
+
+export default connect(mapStateToProps)(App);
