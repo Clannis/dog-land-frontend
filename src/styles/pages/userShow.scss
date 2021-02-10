@@ -1,6 +1,16 @@
 .user {
+
+    margin: auto;
+    margin-top: 10em;
+    width: 95%;
+    display: flex;
     
     &__user-box {
+        background-color: whitesmoke;
+        border-radius: 10px;
+        height: 20em;
+        flex: 1 auto;
+        margin-right: 5em;
 
         &--img {
 
@@ -8,6 +18,7 @@
 
         &--text {
 
+            padding: 2em;
         }
 
         &--username {
@@ -29,6 +40,14 @@
 
     &__course-box {
 
+        background-color: whitesmoke;
+        border-radius: 10px;
+        flex: 1 auto;
+
+        &--text {
+            padding: 2em;
+        }
+
         &--courses {
 
         }
@@ -43,6 +62,15 @@
     }
 
     &__dogs {
-        
+
+        margin: auto;
+        margin-top: 5em;
+        width: 95%;
+        background-color: whitesmoke;
+        border-radius: 10px;
+
+        &--card:not(:last-child) {
+            margin-bottom: 5em;
+        }
     }
 }

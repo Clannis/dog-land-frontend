@@ -18,19 +18,17 @@ class UserShow extends Component {
                         </div>
                     </div>
                     <div className="user__course-box">
-                        <div className="user__course-box--courses">
-                            <p>Courses Enrolled:</p>
-                        </div>
-                        <div className="user__course-box--completed">
-                            <p>Courses Completed:</p>
-                        </div>
-                        <div className="user__course-box--enrolled">
-                            <p>Dogs Enrolled:</p>
+                        <div className="user__course-box--text">
+                            <p className="user__course-box--courses">Courses Enrolled:</p>
+                            <p className="user__course-box--completed">Courses Completed:</p>
+                            <p className="user__course-box--enrolled">Dogs Enrolled:</p>
                         </div>
                     </div>
                 </section>
                 <section className="user__dogs">
-
+                    <div className="user__dogs--card card">
+                        hi
+                    </div>
                 </section>
             </main>
         )
