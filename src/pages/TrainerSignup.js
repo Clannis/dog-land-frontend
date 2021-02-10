@@ -55,8 +55,7 @@ class TrainerSignup extends Component {
                     </ul>
                 </div>
             )
-        }
-        
+        } 
     }
 
     
