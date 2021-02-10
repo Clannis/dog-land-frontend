@@ -33,11 +33,11 @@ class Login extends Component {
     }
 
     displayErrors = () => {
-        if (this.props.user.errors !== undefined) {
+        if (this.props.errors > 0) {
             return (
                 <div className="login__errors">
                     <ul className="login__errors--list">
-                        {this.props.user.errors.map( error => <li className="login__errors--message">{error}</li>)}
+                        {this.props.errors.map( error => <li className="login__errors--message">{error}</li>)}
                     </ul>
                 </div>
             )
@@ -72,7 +72,8 @@ class Login extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        user: state.user.user
+        user: state.user.user,
+        errors: state.user.errors
     }
 }
 

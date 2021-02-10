@@ -9,10 +9,10 @@ export default function trainerReducer(state = {trainer: {}, errors: [] }, actio
             }
         case "TRAINER_ERRORS":
             return {
-                user: { 
-                    ...state.trainer,
-                    errors: [action.errors]
-                }
+                trainer: { 
+                    ...state.trainer
+                },
+                errors: [action.errors]
             }
         default:
             return state

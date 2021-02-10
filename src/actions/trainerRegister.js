@@ -15,7 +15,7 @@ export default function trainerRegister(trainer) {
             if (!response.errors) {
                 dispatch({ type: 'TRAINER_LOGIN', trainer: response.trainer, token: response.token })
             } else {
-                alert(`${response.errors}`)
+                dispatch({ type: 'TRAINER_ERRORS', errors: response.errors })
             }
         })
     }

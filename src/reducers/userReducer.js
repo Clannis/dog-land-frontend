@@ -11,8 +11,8 @@ export default function userReducer(state = {user: "", errors: [] }, action) {
             return {
                 user: { 
                     ...state.user,
-                    errors: [action.errors]
-                }
+                },
+                errors: [action.errors]
             }
         default:
             return state
