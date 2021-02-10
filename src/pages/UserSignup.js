@@ -37,8 +37,18 @@ class UserSignup extends Component {
         } else {
             // add error display
         }
-        
-        
+    }
+
+    displayErrors = () => {
+        if (this.props.errors.length > 0) {
+            return (
+                <div className="login__errors">
+                    <ul className="login__errors--list">
+                        {this.props.errors.map( error => <li className="login__errors--message">{error}</li>)}
+                    </ul>
+                </div>
+            )
+        } 
     }
 
     render() {
@@ -46,6 +56,7 @@ class UserSignup extends Component {
             <main className="background">
                 <section className="login">
                     <h1 className="login__heading">Welcome to Dog Land Academy</h1>
+                    {this.displayErrors()}
                     <form className="login__form" onSubmit={this.handleSubmit}>
                         <input className="login__form--input" type="text" id="inputFirstName" name="firstName" placeholder="First Name" required onChange={this.handleChange} value={this.state.firstName}/>
                         <input className="login__form--input" type="text" id="inputLastName" name="lastName" placeholder="Last Name" required onChange={this.handleChange} value={this.state.lastName}/>
@@ -64,10 +75,17 @@ class UserSignup extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        trainer: state.user.user,
+        errors: state.user.errors
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
         userRegister: (user) => dispatch(userRegister(user))
     }
 }
 
-export default connect(null,mapDispatchToProps)(UserSignup)
+export default connect(mapStateToProps, mapDispatchToProps)(UserSignup)

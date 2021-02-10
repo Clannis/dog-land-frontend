@@ -14,7 +14,7 @@ export default function userRegister(user) {
             if (!response.errors) {
                 dispatch({ type: 'USER_LOGIN', user: response.user, token: response.token })
             } else {
-                alert(`${response.errors}`)
+                dispatch({ type: 'USER_ERRORS', errors: response.errors })
             }
         })
     }
