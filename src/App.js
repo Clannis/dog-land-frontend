@@ -19,7 +19,6 @@ class App extends Component {
   }
 
   redirect = () => {
-    console.log("redirect")
     return <Redirect to={`/${`${localStorage.type}s`}/${this.props[`${localStorage.type}`].id}`} />
   }
 
