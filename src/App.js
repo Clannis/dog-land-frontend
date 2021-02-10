@@ -1,4 +1,4 @@
-import './styles/app.scss';
+import './styles/main.scss';
 import Login from './pages/Login';
 import { Switch, Route, Redirect } from 'react-router-dom'
 import Welcome from './pages/Welcome';

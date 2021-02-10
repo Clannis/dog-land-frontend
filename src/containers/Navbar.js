@@ -1,7 +1,6 @@
 import { Component } from "react";
 import Navlink from "../components/Navlink";
 import { navlinks } from "../config";
-import "../styles/navbar.scss"
 import Icon from '../assets/img/Icon.png'
 import { Link } from "react-router-dom";
 import { connect } from "react-redux"

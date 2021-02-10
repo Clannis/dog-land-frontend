@@ -1,6 +1,5 @@
 import { Component } from "react";
 import { connect } from "react-redux";
-import "../styles/login.scss"
 import trainerRegister from '../actions/trainerRegister'
 
 class TrainerSignup extends Component {

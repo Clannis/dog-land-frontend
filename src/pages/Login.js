@@ -1,5 +1,4 @@
 import { Component } from "react";
-import "../styles/login.scss"
 import githubLogo from '../assets/img/github-logo.png'
 import { connect } from "react-redux";
 import login from '../actions/login'

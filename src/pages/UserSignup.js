@@ -1,5 +1,4 @@
 import { Component } from "react";
-import "../styles/login.scss"
 import { connect } from "react-redux";
 import userRegister from '../actions/userRegister'
 

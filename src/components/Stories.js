@@ -1,5 +1,4 @@
 import { Component } from "react";
-import "../styles/stories.scss"
 import videoMp4 from '../assets/video/walking-dogs.mp4'
 import videoWeb from '../assets/video/walking-dogs.webm'
 import casper from '../assets/img/casper.jpg'

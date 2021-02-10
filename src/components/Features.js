@@ -1,6 +1,4 @@
 import { Component } from "react";
-import "../styles/features.scss"
-import "../styles/grid.scss"
 
 class Features extends Component {
     
