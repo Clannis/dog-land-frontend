@@ -4,6 +4,26 @@ export const navlinks = [
         href: "/about"
     },
     {
+        text: "Dogs",
+        href: "/user/:id/dogs"
+    },
+    {
+        text: "Trainers",
+        href: "/trainers"
+    },
+    {
+        text: "Courses",
+        href: "/courses"
+    },
+    {
+        text: "Tricks",
+        href: "/tricks"
+    },
+    {
+        text: "Profile",
+        href: "/user/:username"
+    },
+    {
         text: "Login/Signup",
         href: "/login"
     },
