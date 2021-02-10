@@ -6,8 +6,7 @@ export default function loginStateReducer(state = { loggedIn: false}, action) {
             }
         case "LOGOUT":
             localStorage.removeItem("token")
-            localStorage.removeItem("userId")
-            localStorage.removeItem("trainerId")
+            localStorage.removeItem("type")
             return {
                 loggedIn: false
             }

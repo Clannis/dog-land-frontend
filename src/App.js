@@ -9,20 +9,46 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import UserShow from './pages/UserShow';
 import TrainerShow from './pages/TrainerShow';
+import autoLogin from './actions/autoLogin';
+import {withRouter} from 'react-router-dom';
 
 class App extends Component {
+
+  componentDidMount() {
+    this.props.autoLogin()
+  }
+
+  redirect = () => {
+    console.log("redirect")
+    return <Redirect to={`/${`${localStorage.type}s`}/${this.props.[`${localStorage.type}`].id}`} />
+  }
+
+  redirectByType = () => {
+    console.log(this.props.location.pathname.includes(localStorage.type))
+    if (this.props.location.pathname.includes(`${localStorage.type}s`)) {
+      if (localStorage.type === "user") {
+        console.log("return user")
+        return <UserShow/>
+      } else {
+        console.log("return trainer")
+        return <TrainerShow/>
+      }
+    } else {
+      return this.redirect()
+    }
+  }
 
   render() {
     return (
       <>
         <Navbar/>
         <Switch>
-          <Route exact path="/" component={Welcome}>{this.props.loggedIn ? <Redirect to="/users/:id" /> : <Welcome/>}</Route>
-          <Route path="/login" component={Login}>{this.props.loggedIn ? this.props.user.id ? <Redirect to={`/users/${this.props.user.id}`} /> : <Redirect to={`/trainers/${this.props.trainer.id}`} /> : <Login/>}</Route>
-          <Route path="/register" component={UserSignup}/>
-          <Route path="/trainer_signup" component={TrainerSignup}>{this.props.loggedIn ? <Redirect to="/trainers/:id" /> : <TrainerSignup/> }</Route>
-          <Route path="/users/:id" component={UserShow}>{this.props.loggedIn ? this.props.user.id ? <UserShow/> : <TrainerShow/> : <Redirect to="/login" /> }</Route>
-          <Route path="/trainers/:id" component={TrainerShow}>{this.props.loggedIn ? this.props.trainer.id ? <TrainerShow/> : <UserShow/> : <Redirect to="/login" /> }</Route>
+          <Route exact path="/">{this.props.loggedIn ? this.redirectByType : <Welcome/>}</Route>
+          <Route path="/login">{this.props.loggedIn ?  this.redirectByType : <Login/>}</Route>
+          <Route path="/register">{this.props.loggedIn ? this.redirectByType : <UserSignup/>}</Route>
+          <Route path="/trainer_signup">{this.props.loggedIn ? this.redirectByType : <TrainerSignup/> }</Route>
+          <Route path="/users/:id">{this.props.loggedIn ?  this.redirectByType : <Redirect to="/login" /> }</Route>
+          <Route path="/trainers/:id">{this.props.loggedIn ?  this.redirectByType : <Redirect to="/login" /> }</Route>
         </Switch>
       </>
     );
@@ -37,4 +63,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch) => {
+  return {
+      autoLogin: () => dispatch(autoLogin())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(App));
