@@ -3,6 +3,7 @@ export default function trainerReducer(state = {trainer: {}, errors: [] }, actio
     switch (action.type) {
         case "TRAINER_LOGIN":
             localStorage.token = action.token
+            localStorage.trainerId = action.trainer.id
             return {
                 trainer: action.trainer,
                 errors: []
