@@ -23,32 +23,26 @@ class App extends Component {
     return <Redirect to={`/${`${localStorage.type}s`}/${this.props[`${localStorage.type}`].id}`} />
   }
 
-  redirectByType = () => {
-    console.log(this.props.location.pathname.includes(localStorage.type))
+  redirectByType = (component = null) => {
     if (this.props.location.pathname.includes(`${localStorage.type}s`)) {
-      if (localStorage.type === "user") {
-        console.log("return user")
-        return <UserShow/>
-      } else {
-        console.log("return trainer")
-        return <TrainerShow/>
-      }
+      return component
     } else {
       return this.redirect()
     }
   }
 
   render() {
+    console.log(this.props)
     return (
       <>
         <Navbar/>
         <Switch>
-          <Route exact path="/">{this.props.loggedIn ? this.redirectByType : <Welcome/>}</Route>
-          <Route path="/login">{this.props.loggedIn ?  this.redirectByType : <Login/>}</Route>
-          <Route path="/register">{this.props.loggedIn ? this.redirectByType : <UserSignup/>}</Route>
-          <Route path="/trainer_signup">{this.props.loggedIn ? this.redirectByType : <TrainerSignup/> }</Route>
-          <Route path="/users/:id">{this.props.loggedIn ?  this.redirectByType : <Redirect to="/login" /> }</Route>
-          <Route path="/trainers/:id">{this.props.loggedIn ?  this.redirectByType : <Redirect to="/login" /> }</Route>
+          <Route exact path="/">{this.props.loggedIn ? this.redirectByType() : <Welcome/>}</Route>
+          <Route path="/login">{this.props.loggedIn ?  this.redirectByType() : <Login/>}</Route>
+          <Route path="/register" render={() => this.props.loggedIn ? this.redirectByType() : <UserSignup registerProps={this.props.location.registerProps}/>}/>
+          <Route path="/trainer_signup">{this.props.loggedIn ? this.redirectByType() : <TrainerSignup/> }</Route>
+          <Route path="/users/:id">{this.props.loggedIn ?  this.redirectByType(<UserShow/>) : <Redirect to="/login" /> }</Route>
+          <Route path="/trainers/:id">{this.props.loggedIn ?  this.redirectByType(<TrainerShow/>) : <Redirect to="/login" /> }</Route>
         </Switch>
       </>
     );

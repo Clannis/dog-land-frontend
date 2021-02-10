@@ -8,8 +8,8 @@ class UserSignup extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            email: props.location.registerProps ? props.location.registerProps.email : "",
-            password: props.location.registerProps ? props.location.registerProps.password : "",
+            email: props.registerProps ? props.registerProps.email : "",
+            password: props.registerProps ? props.registerProps.password : "",
             passwordConfirmation: "",
             firstName: "",
             lastName: "",
