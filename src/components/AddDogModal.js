@@ -7,7 +7,9 @@ class AddDogModal extends Component {
         super()
         this.state = {
             name: "",
-            breed: ""
+            breed: "",
+            age: "",
+            shots: ""
         }
     }
 
@@ -26,17 +28,22 @@ class AddDogModal extends Component {
     }
 
     handleSubmit = () => {
-        
+
     }
 
     render() {
         return(
             <form onSubmit={this.handleSubmit}>
-                <input name="name" type="text" onChange={this.handleChange} value={this.state.name}/>
-                <select name="breed" type="text" onChange={this.handleChange} value={this.state.breed}>
+                <label for="name">Dog's Name: </label>
+                <input id="name" name="name" type="text"  placeholder="Dog's Name" onChange={this.handleChange} value={this.state.name}/>
+                <label for="breed">Dog's Breed: </label>
+                <select id="breed" name="breed" type="text" onChange={this.handleChange} value={this.state.breed}>
+                    <option value="" >Select Dog's Breed</option>
                     {this.populateBreeds()}
                 </select>
-                <select name="breed" type="text" onChange={this.handleChange} value={this.state.breed}>
+                <label for="age">Dog's Age: </label>
+                <select id="age" name="age" type="text" onChange={this.handleChange} value={this.state.age}>
+                    <option value="" >Select Dog's Age</option>
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -51,7 +58,8 @@ class AddDogModal extends Component {
                     <option value="11">11</option>
                     <option value="12">12</option>
                 </select>
-                <input name="name" type="date" onChange={this.handleChange} value={this.state.name}/>
+                <label for="shots">Date of last Rabies Shot: </label>
+                <input name="shots" type="date" onChange={this.handleChange} value={this.state.shots}/>
                 <button className="btn" type="submit">Add Dog</button>
             </form>
         )
