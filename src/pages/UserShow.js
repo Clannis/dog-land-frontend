@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { connect } from "react-redux";
+import DogCards from "../containers/DogCards";
 
 class UserShow extends Component {
     render() {
@@ -26,9 +27,7 @@ class UserShow extends Component {
                     </div>
                 </section>
                 <section className="user__dogs">
-                    <div className="user__dogs--card card">
-                        hi
-                    </div>
+                    <DogCards dogs={this.props.user.dogs}/>
                 </section>
             </main>
         )

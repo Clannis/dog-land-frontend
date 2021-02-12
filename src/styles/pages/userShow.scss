@@ -69,8 +69,32 @@
         background-color: whitesmoke;
         border-radius: 10px;
 
-        &--card:not(:last-child) {
-            margin-bottom: 5em;
+        &--cards-list {
+            padding: 2em 0;
+            width: 97%;
+            margin: auto;
+            list-style: none;
+        }
+
+        &--card {
+            
+            
+            border-radius: 10px;
+            border: 1px solid gray;
+            background-color: rgb(255, 255, 255);
+
+            &:not(:last-child) {
+                margin-bottom: 3em;
+                
+            }
+
+            &-img {
+                
+            }
+
+            &-text {
+                padding: 1em;
+            }
         }
     }
 }
