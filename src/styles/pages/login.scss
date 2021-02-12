@@ -13,7 +13,8 @@
     border-radius: 5px;
     color: #C6FF46;
 
-    &:hover {
+    &:hover,
+    &:focus {
         background-color: #C6FF46;
         border-color: #005f33;
         color: #005f33;

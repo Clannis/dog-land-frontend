@@ -35,7 +35,8 @@
         position: relative;
         transition: all .3s ease;
 
-        &:hover {
+        &:hover,
+        &:focus {
             background-color: rgb(17, 160, 51);
 
             > .navigation__item--text {
