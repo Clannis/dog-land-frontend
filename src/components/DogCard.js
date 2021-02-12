@@ -15,7 +15,7 @@ class DogCard extends Component {
                 <div className="right">
                     <p>Currently Enrolled:</p>
                     <p>Next Class:</p>
-                    <p>Shots up-to-date: {this.props.dog.shots}</p>
+                    <p>Shots up-to-date: {this.props.dog.shots ? "Yes" : "No"}</p>
                 </div>
             </div>
         )
