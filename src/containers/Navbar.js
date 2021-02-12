@@ -9,9 +9,9 @@ class Navbar extends Component {
 
     renderNavlinks = () => {
         if (this.props.loggedIn) {
-            return navlinks.filter( link => link.text !== "Login/Signup").map( link => <Navlink link={link} key={link.text}/>)
+            return navlinks.filter( link => link.show === "loggedIn" || link.show === "both").map( link => <Navlink link={link} key={link.text}/>)
         } else {
-            return navlinks.filter( link => link.text !== "Logout").map( link => <Navlink link={link} key={link.text}/>)
+            return navlinks.filter( link => link.show === "loggedOut" || link.show === "both").map( link => <Navlink link={link} key={link.text}/>)
         }
         
     }

@@ -1,35 +1,43 @@
 export const navlinks = [
     {
         text: "About Dogland",
-        href: "/about"
+        href: "/about",
+        show: "both"
     },
     {
         text: "Dogs",
-        href: "/user/:id/dogs"
+        href: "/user/:id/dogs",
+        show: "loggedIn"
     },
     {
         text: "Trainers",
-        href: "/trainers"
+        href: "/trainers",
+        show: "loggedIn"
     },
     {
         text: "Courses",
-        href: "/courses"
+        href: "/courses",
+        show: "loggedIn"
     },
     {
         text: "Tricks",
-        href: "/tricks"
+        href: "/tricks",
+        show: "loggedIn"
     },
     {
         text: "Profile",
-        href: "/user/:username"
+        href: "/user/:username",
+        show: "loggedIn"
     },
     {
         text: "Login/Signup",
-        href: "/login"
+        href: "/login",
+        show: "loggedOut"
     },
     {
         text: "Logout",
-        href: "/logout"
+        href: "/logout",
+        show: "loggedIn"
     }
 ]
 
