@@ -108,6 +108,12 @@
             display: inline-block;
             font-size: large;
             cursor: pointer;
+            position: relative;
+
+            &:hover,
+            &:focus {
+                background-color: rgb(17, 160, 51);
+            }
         }
     }
 }
