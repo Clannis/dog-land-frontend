@@ -33,35 +33,38 @@ class AddDogModal extends Component {
 
     render() {
         return(
-            <form onSubmit={this.handleSubmit}>
-                <label for="name">Dog's Name: </label>
-                <input id="name" name="name" type="text"  placeholder="Dog's Name" onChange={this.handleChange} value={this.state.name}/>
-                <label for="breed">Dog's Breed: </label>
-                <select id="breed" name="breed" type="text" onChange={this.handleChange} value={this.state.breed}>
-                    <option value="" >Select Dog's Breed</option>
-                    {this.populateBreeds()}
-                </select>
-                <label for="age">Dog's Age: </label>
-                <select id="age" name="age" type="text" onChange={this.handleChange} value={this.state.age}>
-                    <option value="" >Select Dog's Age</option>
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                </select>
-                <label for="shots">Date of last Rabies Shot: </label>
-                <input name="shots" type="date" onChange={this.handleChange} value={this.state.shots}/>
-                <button className="btn" type="submit">Add Dog</button>
-            </form>
+            <>
+                <h2 className="dog-form__heading">Tell us about your dog.</h2>
+                <form onSubmit={this.handleSubmit} className="dog-form">
+                    <label className="dog-form__label" for="name">Name: </label>
+                    <input className="dog-form__input" id="name" name="name" type="text" required placeholder="Name" onChange={this.handleChange} value={this.state.name}/>
+                    <label className="dog-form__label" for="breed">Breed: </label>
+                    <select className="dog-form__input" id="breed" name="breed" type="text" required onChange={this.handleChange} value={this.state.breed}>
+                        <option value="" >Select Breed</option>
+                        {this.populateBreeds()}
+                    </select>
+                    <label className="dog-form__label" for="age">Dog's Age: </label>
+                    <select className="dog-form__input" id="age" name="age" type="text" required onChange={this.handleChange} value={this.state.age}>
+                        <option value="" >Select Age</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                    <label className="dog-form__label" for="shots">Date of last Rabies Shot: </label>
+                    <input className="dog-form__input" name="shots" type="date" required onChange={this.handleChange} value={this.state.shots}/>
+                    <button className="btn dog-form__btn" type="submit">Add Dog</button>
+                </form>
+            </>
         )
     }
 }
