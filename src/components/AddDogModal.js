@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { connect } from "react-redux";
+import addDog from "../actions/addDog";
 import getDogBreeds from "../actions/getDogBreeds";
 
 class AddDogModal extends Component {
@@ -9,7 +10,7 @@ class AddDogModal extends Component {
             name: "",
             breed: "",
             age: "",
-            shots: ""
+            lastShotDate: ""
         }
     }
 
@@ -24,11 +25,19 @@ class AddDogModal extends Component {
     }
 
     populateBreeds = () => {
-        return this.props.dogBreeds.map(breed => <option value={breed}>{breed}</option>)
+        return this.props.dogBreeds.map((breed, index) => <option key={index} value={breed}>{breed}</option>)
     }
 
-    handleSubmit = () => {
-
+    handleSubmit = (event) => {
+        event.preventDefault()
+        const dog = {
+            name: this.state.name,
+            breed: this.state.breed,
+            age: this.state.age,
+            last_shot_date: this.state.lastShotDate
+        }
+        this.props.addDog(this.props.user, dog)
+        this.props.showModal()
     }
 
     render() {
@@ -36,32 +45,32 @@ class AddDogModal extends Component {
             <>
                 <h2 className="dog-form__heading">Tell us about your dog.</h2>
                 <form onSubmit={this.handleSubmit} className="dog-form">
-                    <label className="dog-form__label" for="name">Name</label>
+                    <label className="dog-form__label" htmlFor="name">Name</label>
                     <input className="dog-form__input" id="name" name="name" type="text" required placeholder="Name" onChange={this.handleChange} value={this.state.name}/>
-                    <label className="dog-form__label" for="breed">Breed</label>
+                    <label className="dog-form__label" htmlFor="breed">Breed</label>
                     <select className="dog-form__input" id="breed" name="breed" type="text" required onChange={this.handleChange} value={this.state.breed}>
                         <option value="" >Select Breed</option>
                         {this.populateBreeds()}
                     </select>
-                    <label className="dog-form__label" for="age">Age</label>
+                    <label className="dog-form__label" htmlFor="age">Age</label>
                     <select className="dog-form__input" id="age" name="age" type="text" required onChange={this.handleChange} value={this.state.age}>
                         <option value="" >Select Age</option>
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
+                        <option value="0" key="0">0</option>
+                        <option value="1" key="1">1</option>
+                        <option value="2" key="2">2</option>
+                        <option value="3" key="3">3</option>
+                        <option value="4" key="4">4</option>
+                        <option value="5" key="5">5</option>
+                        <option value="6" key="6">6</option>
+                        <option value="7" key="7">7</option>
+                        <option value="8" key="8">8</option>
+                        <option value="9" key="9">9</option>
+                        <option value="10" key="10">10</option>
+                        <option value="11" key="11">11</option>
+                        <option value="12" key="12">12</option>
                     </select>
-                    <label className="dog-form__label" for="shots">Date of last Rabies Shot</label>
-                    <input className="dog-form__input" name="shots" type="date" required onChange={this.handleChange} value={this.state.shots}/>
+                    <label className="dog-form__label" htmlFor="shots">Date of last Rabies Shot</label>
+                    <input className="dog-form__input" id="shots" name="lastShotDate" type="date" required onChange={this.handleChange} value={this.state.lastShotDate}/>
                     <button className="btn dog-form__btn" type="submit">Add Dog</button>
                 </form>
             </>
@@ -71,13 +80,15 @@ class AddDogModal extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        dogBreeds: state.dogBreeds.dogBreeds
+        dogBreeds: state.dogBreeds.dogBreeds,
+        user: state.user.user
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getDogBreeds: () => dispatch(getDogBreeds())
+        getDogBreeds: () => dispatch(getDogBreeds()),
+        addDog: (user, dog) => dispatch(addDog(user,dog))
     }
 }
 

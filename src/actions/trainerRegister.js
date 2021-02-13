@@ -1,7 +1,6 @@
 import { BASE_URL } from '../config'
 
 export default function trainerRegister(trainer) {
-    console.log(trainer)
     return (dispatch) => {
         fetch(`${BASE_URL}/trainers`, {
             method: 'POST', // or 'PUT'

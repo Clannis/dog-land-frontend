@@ -8,6 +8,14 @@ export default function userReducer(state = {user: {}, errors: [] }, action) {
                 user: action.user,
                 errors: []
             }
+        case "ADD_USER_DOG":
+            return {
+                user: {
+                    ...state.user,
+                    dogs: [...state.user.dogs, action.dog]
+                },
+                errors: []
+            }
         case "USER_ERRORS":
             return {
                 user: { 

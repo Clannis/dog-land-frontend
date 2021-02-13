@@ -5,7 +5,7 @@ const Modal = (props) => {
     const pickModal = () => {
         switch (props.modal) {
             case "addDog":
-                return <AddDogModal/>
+                return <AddDogModal showModal={props.showModal}/>
             default:
                 return null
         }
