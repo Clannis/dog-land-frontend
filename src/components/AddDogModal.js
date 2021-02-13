@@ -36,14 +36,14 @@ class AddDogModal extends Component {
             <>
                 <h2 className="dog-form__heading">Tell us about your dog.</h2>
                 <form onSubmit={this.handleSubmit} className="dog-form">
-                    <label className="dog-form__label" for="name">Name: </label>
+                    <label className="dog-form__label" for="name">Name</label>
                     <input className="dog-form__input" id="name" name="name" type="text" required placeholder="Name" onChange={this.handleChange} value={this.state.name}/>
-                    <label className="dog-form__label" for="breed">Breed: </label>
+                    <label className="dog-form__label" for="breed">Breed</label>
                     <select className="dog-form__input" id="breed" name="breed" type="text" required onChange={this.handleChange} value={this.state.breed}>
                         <option value="" >Select Breed</option>
                         {this.populateBreeds()}
                     </select>
-                    <label className="dog-form__label" for="age">Dog's Age: </label>
+                    <label className="dog-form__label" for="age">Age</label>
                     <select className="dog-form__input" id="age" name="age" type="text" required onChange={this.handleChange} value={this.state.age}>
                         <option value="" >Select Age</option>
                         <option value="0">0</option>
@@ -60,7 +60,7 @@ class AddDogModal extends Component {
                         <option value="11">11</option>
                         <option value="12">12</option>
                     </select>
-                    <label className="dog-form__label" for="shots">Date of last Rabies Shot: </label>
+                    <label className="dog-form__label" for="shots">Date of last Rabies Shot</label>
                     <input className="dog-form__input" name="shots" type="date" required onChange={this.handleChange} value={this.state.shots}/>
                     <button className="btn dog-form__btn" type="submit">Add Dog</button>
                 </form>
