@@ -8,7 +8,7 @@ class DogCards extends Component {
         this.state = {
             showModal: false,
             modal: "",
-            id: ""
+            passDown: ""
         }
     }
 
@@ -22,11 +22,11 @@ class DogCards extends Component {
         })
     }
 
-    showModal = (modal = "", id = "") => {
+    showModal = (modal = "", passDown = "") => {
         this.setState({
             showModal: !this.state.showModal,
             modal: modal,
-            id: id
+            passDown: passDown
         })
     }
 
@@ -39,7 +39,7 @@ class DogCards extends Component {
             <ul className="user__dogs--cards-list">
                 {this.renderCards()}
                 <button className="user__dogs--add-dog btn" onClick={() => this.showModal("addDog")}>Add New Dog</button>
-                {this.renderModal(<Modal showModal={this.showModal} modal={this.state.modal} id={this.state.id}/>)}
+                {this.renderModal(<Modal showModal={this.showModal} modal={this.state.modal} id={this.state.passDown}/>)}
             </ul>
         )
     }
