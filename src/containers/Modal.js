@@ -1,5 +1,6 @@
 import AddDogModal from "../components/AddDogModal"
 import EditDogModal from "../components/EditDogModal"
+import ConfirmationModal from "../components/ConfirmationModal"
 
 const Modal = (props) => {
 
@@ -8,7 +9,9 @@ const Modal = (props) => {
             case "addDog":
                 return <AddDogModal showModal={props.showModal}/>
             case "editDog":
-                return <EditDogModal showModal={props.showModal} id={props.id}/>
+                return <EditDogModal showModal={props.showModal} id={props.passDown}/>
+            case "confirmation":
+                return <ConfirmationModal showModal={props.showModal} setConfirmation={props.passDown}/>
             default:
                 return null
         }
