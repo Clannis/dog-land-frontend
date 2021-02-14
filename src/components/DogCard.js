@@ -1,4 +1,6 @@
 import { Component } from "react";
+import { connect } from "react-redux";
+import deleteDog from "../actions/deleteDog";
 import caesar from "../assets/img/caesar.jpg";
 
 class DogCard extends Component {
@@ -8,7 +10,7 @@ class DogCard extends Component {
     }
 
     handleDelete = () => {
-        // this.props.dog.id
+        this.props.deleteDog(this.props.user, this.props.dog)
     }
 
     render() {
@@ -72,4 +74,16 @@ class DogCard extends Component {
     }
 }
 
-export default DogCard
+const mapStateToProps = (state) => {
+    return {
+        user: state.user.user
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        deleteDog: (user, dog) => dispatch(deleteDog(user, dog))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DogCard)
