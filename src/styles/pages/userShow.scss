@@ -80,22 +80,77 @@
         }
 
         &--card {
-            
+
             border-radius: 10px;
             border: 1px solid gray;
             background-color: rgb(255, 255, 255);
+            position: relative;
+            height: 15rem;
+            display: table;
+            width: 100%;
 
             &:not(:last-child) {
+
                 margin-bottom: 3em;
-                
+            }
+
+            &-container {
+
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            &-table {
+
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            &-shape {
+
+                height: 10rem;
+                width: 10rem;
+                -webkit-shape-outside: circle(50% at 50% 50%);
+                shape-outside: circle(50% at 50% 50%);
+                -webkit-clip-path: circle(50% at 50% 50%);
+                clip-path: circle(50% at 50% 50%);
             }
 
             &-img {
 
+                height: 100%;
+                transition: all .5s;
+                object-fit: fill;
+                overflow: hidden;
+
+                &--container {
+
+                    padding-left: 3em;
+                }
             }
 
             &-text {
-                padding: 1em;
+
+                &:not(:last-child) {
+
+                    padding-bottom: 1em;
+                }
+
+                &--dog {
+                    flex-grow: 2;
+                }
+
+                &--classes {
+                    flex-grow: 1.5;
+                }
+
+                &--container {
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-grow: 2;
+                    padding-left: 3em;
+                    margin: auto;
+                }
             }
         }
 
@@ -106,4 +161,16 @@
             font-size: large;
         }
     }
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.justify-space-between {
+    justify-content: space-between;
 }
