@@ -39,7 +39,7 @@ class DogCards extends Component {
             <ul className="user__dogs--cards-list">
                 {this.renderCards()}
                 <button className="user__dogs--add-dog btn" onClick={() => this.showModal("addDog")}>Add New Dog</button>
-                {this.renderModal(<Modal showModal={this.showModal} modal={this.state.modal} id={this.state.passDown}/>)}
+                {this.renderModal(<Modal showModal={this.showModal} modal={this.state.modal} passDown={this.state.passDown}/>)}
             </ul>
         )
     }
