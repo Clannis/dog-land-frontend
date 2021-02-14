@@ -5,12 +5,19 @@ import caesar from "../assets/img/caesar.jpg";
 
 class DogCard extends Component {
 
+    setConfirmation = (value) => {
+        if (value) {
+            this.props.deleteDog(this.props.user, this.props.dog) 
+        } 
+        this.props.showModal()
+    }
+
     handleEdit = () => {
         this.props.showModal("editDog", this.props.dog.id)
     }
 
     handleDelete = () => {
-        this.props.deleteDog(this.props.user, this.props.dog)
+        this.props.showModal("confirmation", this.setConfirmation)
     }
 
     render() {
