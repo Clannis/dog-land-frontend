@@ -24,12 +24,16 @@ class DogCards extends Component {
         this.setState({showModal: !this.state.showModal})
     }
 
+    renderModal = (component) => {
+        return this.state.showModal ? component : null
+    }
+
     render() {
         return(
             <ul className="user__dogs--cards-list">
                 {this.renderCards()}
                 <button className="user__dogs--add-dog btn" onClick={this.showModal}>Add New Dog</button>
-                {this.state.showModal ? <Modal showModal={this.showModal} modal="addDog"/> : null}
+                {this.renderModal(<Modal showModal={this.showModal} modal="addDog"/>)}
             </ul>
         )
     }
