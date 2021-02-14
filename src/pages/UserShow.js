@@ -27,7 +27,7 @@ class UserShow extends Component {
                     </div>
                 </section>
                 <section className="user__dogs">
-                    <DogCards dogs={this.props.user.dogs}/>
+                    <DogCards dogs={this.props.dogs}/>
                 </section>
             </main>
         )
@@ -36,8 +36,15 @@ class UserShow extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        user: state.user.user
+        user: state.user.user,
+        dogs: state.user.user.dogs
     }
 }
 
-export default connect(mapStateToProps)(UserShow)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserShow)
