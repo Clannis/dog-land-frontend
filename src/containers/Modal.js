@@ -1,4 +1,5 @@
 import AddDogModal from "../components/AddDogModal"
+import EditDogModal from "../components/EditDogModal"
 
 const Modal = (props) => {
 
@@ -6,6 +7,8 @@ const Modal = (props) => {
         switch (props.modal) {
             case "addDog":
                 return <AddDogModal showModal={props.showModal}/>
+            case "editDog":
+                return <EditDogModal showModal={props.showModal} id={this.props.id}/>
             default:
                 return null
         }

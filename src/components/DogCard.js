@@ -2,6 +2,15 @@ import { Component } from "react";
 import caesar from "../assets/img/caesar.jpg";
 
 class DogCard extends Component {
+
+    handleEdit = () => {
+        this.props.showModal("editDog", this.props.dog)
+    }
+
+    handleDelete = () => {
+        // this.props.dog.id
+    }
+
     render() {
         return(
             <>
@@ -33,7 +42,7 @@ class DogCard extends Component {
                 </button>
                 <div className="dropdown">
                     <div className="dropdown__content">
-                        <div className="dropdown__row">
+                        <div className="dropdown__row" onClick={this.handleEdit}>
                             <p className="dropdown__row--item">
                                 Edit
                             </p>
