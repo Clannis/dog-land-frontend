@@ -16,7 +16,7 @@ class DogCards extends Component {
         return this.props.dogs.map(dog => {
             return(
                 <li className="user__dogs--card" key={dog.id}>
-                    <DogCard dog={dog}/>
+                    <DogCard dog={dog} showModal={this.showModal}/>
                 </li>
             )
         })

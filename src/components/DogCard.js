@@ -4,7 +4,7 @@ import caesar from "../assets/img/caesar.jpg";
 class DogCard extends Component {
 
     handleEdit = () => {
-        this.props.showModal("editDog", this.props.dog)
+        this.props.showModal("editDog", this.props.dog.id)
     }
 
     handleDelete = () => {

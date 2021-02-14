@@ -8,7 +8,7 @@ const Modal = (props) => {
             case "addDog":
                 return <AddDogModal showModal={props.showModal}/>
             case "editDog":
-                return <EditDogModal showModal={props.showModal} id={this.props.id}/>
+                return <EditDogModal showModal={props.showModal} id={props.id}/>
             default:
                 return null
         }
