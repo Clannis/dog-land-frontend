@@ -1,7 +1,6 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import deleteDog from "../actions/deleteDog";
-import caesar from "../assets/img/caesar.jpg";
 
 class DogCard extends Component {
 
@@ -27,7 +26,7 @@ class DogCard extends Component {
                     <div className="user__dogs--card-container">
                         <div className="user__dogs--card-img--container justify-space-between">
                             <div className="user__dogs--card-shape">
-                                <img className="user__dogs--card-img" src={caesar} alt="Caesar"/>
+                                <img className="user__dogs--card-img" src={this.props.dog.avatar} alt={this.props.dog.name}/>
                             </div>
                         </div>
                         <div className="user__dogs--card-text--container justify-space-between">
