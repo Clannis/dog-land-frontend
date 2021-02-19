@@ -9,7 +9,7 @@ export default function editDog(user, dog) {
                 'Content-Type': 'application/json',
                 'Authorization': localStorage.token
             },
-            body: JSON.stringify({dog})
+            body: JSON.stringify(dog)
         })
         .then(response => response.json())
         .then(response => {
