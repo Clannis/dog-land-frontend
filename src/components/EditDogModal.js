@@ -12,7 +12,8 @@ class EditDogModal extends Component {
             name: dog.name,
             breed: dog.breed,
             age: dog.age,
-            lastShotDate: new Date(dog.lastShotDate).toISOString().split('T')[0]
+            last_shot_date: new Date(dog.lastShotDate).toISOString().split('T')[0],
+            avatar: null
         }
     }
 
@@ -32,15 +33,13 @@ class EditDogModal extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        const dog = {
-            id: this.state.id,
-            name: this.state.name,
-            breed: this.state.breed,
-            age: this.state.age,
-            last_shot_date: this.state.lastShotDate
-        }
-        this.props.editDog(this.props.user, dog)
+        var formData = new FormData(document.querySelector('form'))
+        this.props.editDog(this.props.user, formData, this.state.id)
         this.props.showModal()
+    }
+
+    setPhoto = (event) => {
+        this.setState({avatar: event.target.files[0]});
     }
 
     render() {
@@ -48,6 +47,7 @@ class EditDogModal extends Component {
             <>
                 <h2 className="dog-form__heading">Edit your dog's info.</h2>
                 <form onSubmit={this.handleSubmit} className="dog-form">
+                    <input type='file' name='avatar' onChange={this.setPhoto}/> 
                     <label className="dog-form__label" htmlFor="name">Name</label>
                     <input className="dog-form__input" id="name" name="name" type="text" required placeholder="Name" onChange={this.handleChange} value={this.state.name}/>
                     <label className="dog-form__label" htmlFor="breed">Breed</label>
@@ -73,7 +73,7 @@ class EditDogModal extends Component {
                         <option value="12" key="12">12</option>
                     </select>
                     <label className="dog-form__label" htmlFor="shots">Date of last Rabies Shot</label>
-                    <input className="dog-form__input" id="shots" name="lastShotDate" type="date" required onChange={this.handleChange} value={this.state.lastShotDate}/>
+                    <input className="dog-form__input" id="shots" name="last_shot_date" type="date" required onChange={this.handleChange} value={this.state.lastShotDate}/>
                     <button className="btn dog-form__btn" type="submit">Update</button>
                 </form>
             </>
@@ -92,7 +92,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getDogBreeds: () => dispatch(getDogBreeds()),
-        editDog: (user, dog) => dispatch(editDog(user,dog))
+        editDog: (user, dog, id) => dispatch(editDog(user,dog, id))
     }
 }
 
