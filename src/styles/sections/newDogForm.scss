@@ -29,4 +29,18 @@
         padding: 15px 32px;
         font-size: large;
     }
+
+    &__file {
+
+        &--input {
+            margin-left: 2em;
+        }
+    
+        &--container {
+            display: flex;
+            justify-content: left;
+            align-items: flex-end;
+            margin: 1.5em 0;
+        }
+    }
 }
