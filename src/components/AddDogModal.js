@@ -10,7 +10,8 @@ class AddDogModal extends Component {
             name: "",
             breed: "",
             age: "",
-            lastShotDate: ""
+            last_shot_date: "",
+            avatar: null
         }
     }
 
@@ -28,16 +29,27 @@ class AddDogModal extends Component {
         return this.props.dogBreeds.map((breed, index) => <option key={index} value={breed}>{breed}</option>)
     }
 
+    setPhoto = (event) => {
+        this.setState({avatar: event.target.files[0]});
+    }
+
     handleSubmit = (event) => {
         event.preventDefault()
-        const dog = {
-            name: this.state.name,
-            breed: this.state.breed,
-            age: this.state.age,
-            last_shot_date: this.state.lastShotDate
-        }
-        this.props.addDog(this.props.user, dog)
+        var formData = new FormData(document.querySelector('form'))
+        this.props.addDog(this.props.user, formData)
         this.props.showModal()
+    }
+
+    displayPreview = () => {
+        if (this.state.avatar) {
+            return( 
+                <div className="user__dogs--card-img--container justify-space-between">
+                    <div className="user__dogs--card-shape">
+                        <img src={URL.createObjectURL(this.state.avatar)} className="user__dogs--card-img" alt="Preview"/>
+                    </div>
+                </div>
+            )
+        }
     }
 
     render() {
@@ -45,6 +57,11 @@ class AddDogModal extends Component {
             <>
                 <h2 className="dog-form__heading">Tell us about your dog.</h2>
                 <form onSubmit={this.handleSubmit} className="dog-form">
+                    <label className="dog-form__label" htmlFor="file">Image</label>
+                    <div className="dog-form__file--container">
+                        {this.displayPreview()}
+                        <input className="dog-form__file--input" id="file" type='file' name='avatar' onChange={this.setPhoto}/> 
+                    </div>
                     <label className="dog-form__label" htmlFor="name">Name</label>
                     <input className="dog-form__input" id="name" name="name" type="text" required placeholder="Name" onChange={this.handleChange} value={this.state.name}/>
                     <label className="dog-form__label" htmlFor="breed">Breed</label>
@@ -70,7 +87,7 @@ class AddDogModal extends Component {
                         <option value="12" key="12">12</option>
                     </select>
                     <label className="dog-form__label" htmlFor="shots">Date of last Rabies Shot</label>
-                    <input className="dog-form__input" id="shots" name="lastShotDate" type="date" required onChange={this.handleChange} value={this.state.lastShotDate}/>
+                    <input className="dog-form__input" id="shots" name="last_shot_date" type="date" required onChange={this.handleChange} value={this.state.lastShotDate}/>
                     <button className="btn dog-form__btn" type="submit">Add Dog</button>
                 </form>
             </>
