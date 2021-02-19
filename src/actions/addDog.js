@@ -6,10 +6,9 @@ export default function addDog(user, dog) {
         fetch(`${BASE_URL}/users/${user.id}/dogs`, {
             method: 'POST', // or 'PUT'
             headers: {
-                'Content-Type': 'application/json',
                 'Authorization': localStorage.token
             },
-            body: JSON.stringify({dog})
+            body: dog
         })
         .then(response => response.json())
         .then(response => {
