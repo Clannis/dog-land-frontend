@@ -1,15 +1,13 @@
 import { BASE_URL } from '../config'
 
-export default function editDog(user, dog) {
-    console.log(dog)
+export default function editDog(user, dog, id) {
     return (dispatch) => {
-        fetch(`${BASE_URL}/users/${user.id}/dogs/${dog.id}`, {
+        fetch(`${BASE_URL}/users/${user.id}/dogs/${id}`, {
             method: 'PUT', // or 'PUT'
             headers: {
-                'Content-Type': 'application/json',
                 'Authorization': localStorage.token
             },
-            body: JSON.stringify(dog)
+            body: dog
         })
         .then(response => response.json())
         .then(response => {
