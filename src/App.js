@@ -11,6 +11,7 @@ import UserShow from './pages/UserShow';
 import TrainerShow from './pages/TrainerShow';
 import autoLogin from './actions/autoLogin';
 import {withRouter} from 'react-router-dom';
+import UserProfile from './pages/UserProfile';
 
 class App extends Component {
 
@@ -39,6 +40,7 @@ class App extends Component {
           <Route path="/login">{this.props.loggedIn ?  this.redirectByType() : <Login/>}</Route>
           <Route path="/register" render={() => this.props.loggedIn ? this.redirectByType() : <UserSignup registerProps={this.props.location.registerProps}/>}/>
           <Route path="/trainer_signup">{this.props.loggedIn ? this.redirectByType() : <TrainerSignup/> }</Route>
+          <Route path="/users/:id/profile">{this.props.loggedIn ?  this.redirectByType(<UserProfile/>) : <Redirect to="/login" /> }</Route>
           <Route path="/users/:id">{this.props.loggedIn ?  this.redirectByType(<UserShow/>) : <Redirect to="/login" /> }</Route>
           <Route path="/trainers/:id">{this.props.loggedIn ?  this.redirectByType(<TrainerShow/>) : <Redirect to="/login" /> }</Route>
         </Switch>
