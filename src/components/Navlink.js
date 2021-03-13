@@ -10,6 +10,22 @@ function Navlink (props) {
             </li>
         )
     } else {
+        if (props.link.href.includes(":")) {
+            let links = props.link.href.split("/")
+            let newLinks = links.map(segment => {
+                if (segment.includes(":")) {
+                    if (localStorage.type === "user") {
+                        return props.user.id
+                    } else if (localStorage.type === "trainer") {
+                        return props.trainer.id
+                    }
+                } else {
+                    return segment
+                }
+            })
+            props.link.href = newLinks.join("/")
+        } 
+
         return(
             <Link to={props.link.href}>
                 <li className="navigation__item">
@@ -20,10 +36,18 @@ function Navlink (props) {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        loggedIn: state.loggedIn.loggedIn,
+        user: state.user.user,
+        trainer: state.trainer.trainer
+    }
+  }
+
 const mapDispatchToProps = (dispatch) => {
     return {
         logout: () => dispatch(logout())
     }
 }
 
-export default connect(null, mapDispatchToProps)(Navlink)
+export default connect(mapStateToProps, mapDispatchToProps)(Navlink)

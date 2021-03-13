@@ -26,7 +26,7 @@ export const navlinks = [
     },
     {
         text: "Account",
-        href: "/user/:username",
+        href: "/users/:id/profile",
         show: "loggedIn"
     },
     {
